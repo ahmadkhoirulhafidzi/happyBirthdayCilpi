@@ -1,0 +1,185 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background-color: #d88181; /* Latar belakang hitam */
+  position: relative;
+}
+
+/* Petir Animation */
+@keyframes lightning {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.lightning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.6) 50%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  animation: lightning 2s linear infinite;
+}
+
+/* Balloon Animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-400px);
+    opacity: 0;
+  }
+}
+
+.balloon-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1; /* Make sure balloons are behind content */
+}
+
+.balloon {
+  position: absolute;
+  bottom: -80px;
+  width: 40px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f00; /* Default color */
+  animation: floatUp 5s ease-in-out infinite;
+}
+
+.balloon:nth-child(odd) {
+  background-color: #ff0; /* Yellow */
+}
+
+.balloon:nth-child(even) {
+  background-color: #00f; /* Blue */
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 2s ease;
+}
+
+h1, h2 {
+  font-size: 3em;
+  margin: 20px 0;
+  color: #ffe600;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+p {
+  font-size: 1.4em;
+  line-height: 1.8;
+  margin: 15px 0;
+  color: #fce38a;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.quote {
+  font-style: italic;
+  color: #ffffff;
+  font-size: 1.2em;
+  opacity: 0.9;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  color: #f12711;
+  background: #ffe600;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  background: #fff176;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  h1, h2 {
+    font-size: 2.2em;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+
+  .quote {
+    font-size: 1.1em;
+  }
+
+  .button {
+    font-size: 1.1em;
+    padding: 12px 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.8em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .quote {
+    font-size: 1em;
+  }
+
+  .button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}
